@@ -5,7 +5,7 @@ export const createUser = (req, res) => {
         const { name, email } = req.body;
         if(!name || !email){
             return res.status(400).json({
-                sucess: false,    
+                success: false,    
                  message: 'Name and email are required'
                  });
         }
@@ -18,12 +18,12 @@ export const createUser = (req, res) => {
 
         users.push(newUser);
         res.status(201).json({
-            sucess: true,
+            success: true,
             data: newUser
         });
     } catch (error) {
         res.status(500).json({
-            sucess: false,
+            success: false,
             message: error.message
         });
     }
@@ -38,20 +38,20 @@ export const updateUser = (req, res) => {
         const user = users.find(u => u.id === id);
         if(!user){
             return res.status(404).json({
-                sucess: false,
+                success: false,
                 message: 'User not found'
             });
         }
         if(name) user.name = name;
         if(email) user.email = email;
         res.status(200).json({
-            sucess: true,
+            success: true,
             data: user
         });
     }
     catch (error) {
         res.status(500).json({
-            sucess: false,  
+            success: false,  
             message: error.message
         });
     }
@@ -64,7 +64,7 @@ export const deleteUser = (req, res) => {
         const index = users.findIndex(u => u.id === id);
         if(index === -1){
             return res.status(404).json({
-                sucess: false,
+                success: false,
                 message: 'User not found'
             });
         }       
@@ -75,7 +75,7 @@ export const deleteUser = (req, res) => {
     });
     } catch (error) {
         res.status(500).json({
-            sucess: false,  
+            success: false,  
             message: "not deleted"
         });
     }   
@@ -87,17 +87,17 @@ export const getUser = (req, res) => {
         const user = users.find(u => u.id === id);
         if(!user){
             return res.status(404).json({
-                sucess: false,
+                success: false,
                 message: 'User not found'
             });
         }           
         res.status(200).json({
-            sucess: true,
+            success: true,
             data: user
         });
     }   catch (error) { 
         res.status(500).json({
-            sucess: false,  
+            success: false,  
             message: error.message
         });
     }   
