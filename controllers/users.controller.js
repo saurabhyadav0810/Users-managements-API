@@ -1,4 +1,4 @@
-import { users } from '../data/user.js';
+import { users } from '../data/users.js';
 
 export const getUsers = (req, res) => {
     try{
