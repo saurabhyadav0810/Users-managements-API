@@ -1,18 +1,16 @@
 import express from 'express';
-import userRoutes from './routes/users.routes.js';
+import userRoutes from './routes/routes.user.js';
 
 const app = express();
 
-// body parser (JSON)
 app.use(express.json());
 
-
-// Base Route
 app.get('/', (req, res) => {
-  res.send('User Management API is running');
+    res.json({
+        message: "Welcome to the API!"
+    });
 });
 
-// User Routes
 app.use('/api/users', userRoutes);
 
 export default app;
